@@ -22,9 +22,7 @@
         },
       });
 </script>
- @push('page_css')
-  
- @endpush
+ @stack('page_css')
 <!-- CSS Files -->
 <link rel="stylesheet" href="{{ asset('assets/backend/css/bootstrap.min.css') }}" />
 <link rel="stylesheet" href="{{ asset('assets/backend/css/plugins.min.css') }}" />

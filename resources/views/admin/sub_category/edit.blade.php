@@ -15,13 +15,13 @@
                 <i class="icon-arrow-right"></i>
             </li>
             <li class="nav-item">
-                <a href="{{ route('admin.category.index') }}">Category</a>
+                <a href="{{ route('admin.subcategory.index') }}">Category</a>
             </li>
 
         </ul>
     </div>
     <div>
-        <a href="{{ route('admin.category.index') }}" class="btn btn-danger btn-sm">Back to Category</a>
+        <a href="{{ route('admin.subcategory.index') }}" class="btn btn-danger btn-sm">Back to List</a>
     </div>
 </div>
 
@@ -29,32 +29,42 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header py-2">
-                <h4 class="card-title">Category Edit</h4>
+                <h4 class="card-title">Sub Category Edit</h4>
             </div>
-            <div class="card-body">
-                <form action="{{  route('admin.category.update',$category->id) }}" method="post">
+            <div class="card-body">               
+                <form action="{{  route('admin.subcategory.update',$subCategory->id) }}" method="post">
                     @csrf
-                    @isset($category)
-                    @method('PUT')
+                    @isset($subCategory)
+                        @method('PUT')
                     @endisset
                     <div class="mb-3">
+                        <label for="category_id" class="form-label">Category</label>
+                        <select name="category_id" id="category_id" class="form-control">
+                            <option value="">Select Category</option>
+                            @foreach ($categories as $category)
+                                <option @selected($category->id == $subCategory->category_id) value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        </select>
+                        @error('category_id')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" name="name"
-                            value="{{ $category->name ?? old('name') }}">
+                        <input type="text" class="form-control" id="name" name="name" value="{{ $subCategory->name?? old('name') }}">
                         @error('name')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label for="slug" class="form-label">Slug</label>
-                        <input type="text" class="form-control" id="slug" name="slug"
-                            value="{{ $category->slug ?? old('slug') }}">
+                        <input type="text" class="form-control" id="slug" name="slug" value="{{ $subCategory->slug ?? old('slug') }}">
                         @error('slug')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="submit" class="btn btn-primary">Update</button> 
                 </form>
             </div>
         </div>
@@ -74,6 +84,7 @@
 @push('custom_js')
 
 <script>
+
     $(document).ready(function () {
         $('#name').keyup(function () {
             let name = $(this).val();

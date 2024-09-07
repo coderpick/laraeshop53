@@ -44,6 +44,13 @@
                         <p>Sub Category</p>
                     </a>
                 </li>
+
+                 <li class="nav-item {{  Request::is('admin/brand*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.brand.index') }}" class="nav-link">
+                        <i class="fas fa-th-large"></i>
+                        <p>Brand</p>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

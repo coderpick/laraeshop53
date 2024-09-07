@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BrandController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -50,7 +51,10 @@ Route::prefix('admin/')->as('admin.')->middleware(['auth', 'user-access:admin'])
 
 
     Route::resource('category', CategoryController::class);
+
     Route::resource('subcategory', SubCategoryController::class);
+
+    Route::resource('brand', BrandController::class);
 });
 
 

@@ -14,13 +14,13 @@
                 <i class="icon-arrow-right"></i>
             </li>
             <li class="nav-item">
-                <a href="{{ route('admin.subcategory.index') }}">Sub Category</a>
+                <a href="{{ route('admin.brand.index') }}">Brand</a>
             </li>
 
         </ul>
     </div>
     <div>
-        <a href="{{ route('admin.subcategory.create') }}" class="btn btn-primary btn-sm">Add Sub Category</a>
+        <a href="{{ route('admin.brand.create') }}" class="btn btn-primary btn-sm">Add Brand</a>
     </div>
 </div>
 
@@ -28,40 +28,42 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header py-2">
-                <h4 class="card-title">Sub Category</h4>
+                <h4 class="card-title">Brand</h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="display table table-striped table-hover" id="category">
+                    <table class="display table table-striped table-hover" id="brand">
                         <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Slug</th>
-                                <th>Category</th>
+                                <th>Image</th>
                                 <th>Created At</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse($subCategories as $key => $subCategory)
+                            @forelse($brands as $key => $brand)
                             <tr>
-                                <td>{{ $key+1}}</td>
-                                <td>{{ $subCategory->name }}</td>
-                                <td>{{ $subCategory->slug }}</td>
-                                <td>{{ $subCategory->category->name??'' }}</td>
-                                <td>{{ \Carbon\Carbon::parse($subCategory->created_at)->diffForHumans() }}</td>
+                                <td>{{  $key+1 }}</td>
+                                <td>{{ $brand->name }}</td>
+                                <td>{{ $brand->slug }}</td>
+                                <td>
+                                    <img width="100" src="{{ asset( $brand->image) }}" alt="{{ $brand->name }}">
+                                </td>
+                                <td>{{ \Carbon\Carbon::parse($brand->created_at)->diffForHumans() }}</td>
 
                                 <td>
-                                    <a href="{{  route('admin.subcategory.edit', $subCategory->id) }}"
+                                    <a href="{{  route('admin.brand.edit', $brand->id) }}"
                                         class="btn btn-sm btn-primary">Edit</a>
-                                    <button onclick="deleteRecord({{ $subCategory->id }})" type="button"
+                                    <button onclick="deleteRecord({{ $brand->id }})" type="button"
                                         class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top"
-                                        title="Delete Category">
+                                        title="Delete brand">
                                         Delete
                                     </button>
-                                    <form id="delete-form-{{ $subCategory->id }}"
-                                        action="{{ route('admin.subcategory.destroy', $subCategory->id) }}" method="POST"
+                                    <form id="delete-form-{{ $brand->id }}"
+                                        action="{{ route('admin.brand.destroy', $brand->id) }}" method="POST"
                                         style="display: none;">
                                         @csrf
                                         @method('DELETE')
@@ -101,7 +103,7 @@
 <script>
     $(document).ready(function () {
 
-        $("#category").DataTable({});
+        $("#brand").DataTable({});
 
     });
 
