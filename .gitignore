@@ -3,6 +3,7 @@
 /public/build
 /public/hot
 /public/storage
+/public/uploads
 /storage/*.key
 /vendor
 .env
@@ -18,3 +19,5 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+.composer.lock
+.package-lock.json
