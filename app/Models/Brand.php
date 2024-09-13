@@ -12,4 +12,10 @@ class Brand extends Model
     // protected $guarded = ['id'];
 
     protected $fillable = ['name', 'slug', 'image'];
+
+    public function products()
+    {
+
+        return $this->hasMany(Product::class);
+    }
 }

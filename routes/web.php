@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\Admin\AjaxController;
 use App\Http\Controllers\Admin\BrandController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SubCategoryController;
 
 Route::get('/', function () {
@@ -55,6 +57,12 @@ Route::prefix('admin/')->as('admin.')->middleware(['auth', 'user-access:admin'])
     Route::resource('subcategory', SubCategoryController::class);
 
     Route::resource('brand', BrandController::class);
+
+
+    Route::resource('product', ProductController::class);
+
+    /* get subcategory by category id with ajax */
+    Route::get('/get-sub-category', [AjaxController::class, 'getSubCategory'])->name('get.subcategory');
 });
 
 

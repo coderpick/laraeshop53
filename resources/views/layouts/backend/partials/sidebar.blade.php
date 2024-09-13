@@ -2,9 +2,9 @@
     <div class="sidebar-logo">
         <!-- Logo Header -->
         <div class="logo-header" data-background-color="dark">
-            <a href="{{  route('admin.dashboard') }}" class="logo">
-                <img src="{{ asset('assets/backend/img/kaiadmin/logo_light.svg')}}" alt="navbar brand"
-                    class="navbar-brand" height="20" />
+            <a href="{{ route('admin.dashboard') }}" class="logo">
+                <img src="{{ asset('assets/backend/img/logo_light.svg') }}" alt="navbar brand" class="navbar-brand"
+                    height="20" />
             </a>
             <div class="nav-toggle">
                 <button class="btn btn-toggle toggle-sidebar">
@@ -31,24 +31,31 @@
 
                 </li>
 
-                <li class="nav-item {{  Request::is('admin/category*') ? 'active' : '' }}">
+                <li class="nav-item {{ Request::is('admin/category*') ? 'active' : '' }}">
                     <a href="{{ route('admin.category.index') }}" class="nav-link">
                         <i class="fas fa-th-large"></i>
                         <p>Category</p>
                     </a>
                 </li>
 
-                <li class="nav-item {{  Request::is('admin/subcategory*') ? 'active' : '' }}">
+                <li class="nav-item {{ Request::is('admin/subcategory*') ? 'active' : '' }}">
                     <a href="{{ route('admin.subcategory.index') }}" class="nav-link">
                         <i class="fas fa-th-large"></i>
                         <p>Sub Category</p>
                     </a>
                 </li>
 
-                 <li class="nav-item {{  Request::is('admin/brand*') ? 'active' : '' }}">
+                <li class="nav-item {{ Request::is('admin/brand*') ? 'active' : '' }}">
                     <a href="{{ route('admin.brand.index') }}" class="nav-link">
                         <i class="fas fa-th-large"></i>
                         <p>Brand</p>
+                    </a>
+                </li>
+
+                <li class="nav-item {{ Request::is('admin/product*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.product.index') }}" class="nav-link">
+                        <i class="fas fa-th-large"></i>
+                        <p>Product</p>
                     </a>
                 </li>
             </ul>

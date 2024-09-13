@@ -17,6 +17,12 @@ class Category extends Model
 
     protected $guarded = ['id'];
 
+    public function products()
+    {
+
+        return $this->hasMany(Product::class);
+    }
+
     public function subCategories():HasMany
     {
         return $this->hasMany(SubCategory::class);
