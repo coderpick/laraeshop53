@@ -20,7 +20,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::get();
+        $products = Product::withTrashed()->select('id', 'category_id', 'sub_category_id', 'brand_id', 'name', 'price', 'discount', 'discount_price', 'quantity', 'is_featured', 'status', 'deleted_at')
+            ->with('category', 'subCategory', 'brand:id,name')
+            ->get();
         return view('admin.product.index', compact('products'));
     }
 
@@ -39,8 +41,12 @@ class ProductController extends Controller
      */
     public function store(ProductStoreRequest $request)
     {
-        // return $request;
-        $proudct =  Product::create([
+
+        if ($request->discount) {
+            $discountPrice = $request->price - ($request->price * $request->discount) / 100;
+        };
+
+        $product =  Product::create([
             'category_id' => $request->category,
             'sub_category_id' => $request->subCategory,
             'brand_id' => $request->brand,
@@ -49,14 +55,34 @@ class ProductController extends Controller
             'short_description' => $request->short_description,
             'description' => $request->description,
             'price' => $request->price,
-            'discount' => $request->discount,
-            'discount_price' => $request->discount_price,
+            'discount' => $request->discount ?? null,
+            'discount_price' => $discountPrice ?? null,
             'quantity' => $request->quantity,
             'is_featured' => $request->is_featured,
             'status' => $request->is_featured,
         ]);
 
+        $imageData = [];
 
+        if ($files = $request->file('images')) {
+
+            foreach ($files as $key => $file) {
+
+                $imgDriver = new ImageManager(new Driver());
+                $image = $imgDriver->read($file);
+                $image->cover(540, 560);
+                $image->toWebp();
+                $imageName = 'product_' . time() . rand(0000, 9999) . '.webp';
+                $path = 'uploads/product/' . $imageName;
+                $image->save($path);
+                $imageData[] = [
+                    'product_id' => $product->id,
+                    'image' => $path,
+                ];
+            }
+        }
+
+        ProductImage::insert($imageData);
 
         notyf()->success('Product created successfully.');
         return redirect()->route('admin.product.index');
@@ -86,29 +112,48 @@ class ProductController extends Controller
         //
     }
 
+    public function trash(string $id)
+    {
+
+        $product = Product::findOrFail($id);
+
+        $product->delete();
+
+        notyf()->success('Product trashed successfully.');
+        return redirect()->route('admin.product.index');
+    }
+
+    public function restore(string $id)
+    {
+
+        $product = Product::withTrashed()->findOrFail($id);
+
+        $product->restore();
+
+        notyf()->success('Product restored successfully.');
+        return redirect()->route('admin.product.index');
+    }
+
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
-    }
+        $product = Product::with('productImages')->withTrashed()->findOrFail($id);
 
+        if(count($product->productImages) > 0) {
 
-    protected function uploadMedia($request, $brand = null)
-    {
-
-        if ($request->hasFile('images')) {
-            $imgDriver = new ImageManager(new Driver());
-            $image = $imgDriver->read($request->file('images'));
-            $image->cover(300, 280);
-            $image->toWebp();
-            $imageName = time() . rand(0000, 9999) . '.webp';
-            if (isset($brand->image) && File::exists(public_path($brand->image))) {
-                unlink($brand->image);
+            foreach ($product->productImages as $key => $value) {
+                if (File::exists(public_path($value->image))) {
+                    File::delete(public_path($value->image));
+                }
             }
-            $image->save('uploads/product/' . $imageName);
-            return 'uploads/product/' . $imageName;
         }
+       
+
+        $product->forceDelete();
+
+        notyf()->success('Product deleted successfully.');
+        return redirect()->route('admin.product.index');
     }
 }

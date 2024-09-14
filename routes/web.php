@@ -61,6 +61,9 @@ Route::prefix('admin/')->as('admin.')->middleware(['auth', 'user-access:admin'])
 
     Route::resource('product', ProductController::class);
 
+    Route::get('/product/trash/{id}', [ProductController::class, 'trash'])->name('product.trash');
+    Route::get('/product/restore/{id}', [ProductController::class, 'restore'])->name('product.restore');
+
     /* get subcategory by category id with ajax */
     Route::get('/get-sub-category', [AjaxController::class, 'getSubCategory'])->name('get.subcategory');
 });

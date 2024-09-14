@@ -154,8 +154,7 @@
                                 <div class="mb-3">
                                     <label for="image" class="form-label">Product Images <strong
                                             class="text-danger">*</strong></label>
-                                    <input type="file" class="form-control dropify" multiple id="images"
-                                        name="images">
+                                    <input type="file" class="form-control" multiple id="images" name="images[]">
                                     @error('images')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -192,7 +191,7 @@
                         </div>
 
                         <div class="text-center py-4">
-                             <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -269,8 +268,24 @@
                     $('#subCategory').html(response);
                 }
             })
+        })
 
 
+        $('#discount').keyup(function() {
+            let discount = $(this).val();
+            let price = $('#price').val();
+
+            let discounted_price = price - (price * discount) / 100;
+            if (discounted_price > 0) {
+
+                $('#discount_price').val(discounted_price);
+            } else {
+                $('#discount_price').val('');
+            }
+        });
+
+        $('#price').keyup(function() {
+            $('#discount_price').val('');
         })
     </script>
 @endpush
