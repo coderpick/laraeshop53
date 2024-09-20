@@ -58,6 +58,13 @@
                         <p>Product</p>
                     </a>
                 </li>
+
+                <li class="nav-item {{ Request::is('admin/slider*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.slider.index') }}" class="nav-link">
+                        <i class="fas fa-image"></i>
+                        <p>Slider</p>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
