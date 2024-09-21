@@ -20,7 +20,7 @@
                                         <a class="nav-link text-warning" href="{{ route('login') }}">{{ __('Login') }}</a>
                                     </li>
                                 @endif
-                               
+
                                 @if (Route::has('register'))
                                     <li class="nav-item">
                                         <a class="nav-link text-warning"
@@ -68,45 +68,8 @@
                 </div>
                 <div class="col-lg-5 col-md-12 col-12 order-sm-last">
                     <div class="header-middle-inner">
-                        <form action="">
-                            <div class="top-cat hm1">
-                                <div class="search-form">
-                                    <select style="display: none;">
-                                        <optgroup label="Electronics">
-                                            <option value="volvo">Laptop</option>
-                                            <option value="saab">watch</option>
-                                            <option value="saab">air cooler</option>
-                                            <option value="saab">audio</option>
-                                            <option value="saab">speakers</option>
-                                            <option value="saab">amplifires</option>
-                                        </optgroup>
-                                        <optgroup label="Fashion">
-                                            <option value="mercedes">Womens tops</option>
-                                            <option value="audi">Jeans</option>
-                                            <option value="audi">Shirt</option>
-                                            <option value="audi">Pant</option>
-                                            <option value="audi">Watch</option>
-                                            <option value="audi">Handbag</option>
-                                        </optgroup>
-                                    </select>
-                                    <div class="nice-select" tabindex="0"><span class="current">Laptop</span>
-                                        <ul class="list">
-                                            <li data-value="volvo" class="option selected">Laptop</li>
-                                            <li data-value="saab" class="option">watch</li>
-                                            <li data-value="saab" class="option">air cooler</li>
-                                            <li data-value="saab" class="option">audio</li>
-                                            <li data-value="saab" class="option">speakers</li>
-                                            <li data-value="saab" class="option">amplifires</li>
-                                            <li data-value="mercedes" class="option">Womens tops</li>
-                                            <li data-value="audi" class="option">Jeans</li>
-                                            <li data-value="audi" class="option">Shirt</li>
-                                            <li data-value="audi" class="option">Pant</li>
-                                            <li data-value="audi" class="option">Watch</li>
-                                            <li data-value="audi" class="option">Handbag</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                        <form action="" class="w-100">
+
                             <input type="text" class="top-cat-field" placeholder="Search entire store here">
                             <input type="button" class="top-search-btn" value="Search">
                         </form>
@@ -171,6 +134,8 @@
             </div>
         </div>
     </div>
+
+
     <div class="header-top-menu theme-bg sticker">
         <div class="container-fluid">
             <div class="row">
@@ -363,98 +328,32 @@
                             </div>
                             <nav class="categorie-menus ha-dropdown">
                                 <ul id="menu2">
-                                    <li><a href="shop-grid-left-sidebar.html">Audio &amp; Home Theater <span
-                                                class="lnr lnr-chevron-right"></span></a>
-                                        <ul class="cat-submenu">
-                                            <li><a href="shop-grid-left-sidebar.html">Home Audio <span
-                                                        class="lnr lnr-chevron-right"></span></a>
+                                    @forelse ($categories as $key=> $category)
+                                        <li>
+                                            <a href="shop-grid-left-sidebar.html">{!! $category->name !!}
+                                                @if ($category->subCategories->count() > 0)
+                                                    <span class="lnr lnr-chevron-right"></span>
+                                                @endif
+                                            </a>
+                                            @if ($category->subCategories->count() > 0)
                                                 <ul class="cat-submenu">
-                                                    <li><a href="shop-grid-left-sidebar.html">CD Players &amp;
-                                                            Turntables</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html">Home Theater Systems</a>
-                                                    </li>
-                                                    <li><a href="shop-grid-left-sidebar.html">Receivers &amp;
-                                                            Amplifiers</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html">Speakers</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html">Wireless Audio</a></li>
+                                                    @foreach ($category->subCategories as $subCategory)
+                                                        <li><a
+                                                                href="shop-grid-left-sidebar.html">{!! $subCategory->name !!}</a>
+                                                        </li>
+                                                    @endforeach
                                                 </ul>
-                                            </li>
-                                            <li><a href="shop-grid-left-sidebar.html">Blu-ray Disc Players</a></li>
-                                            <li><a href="shop-grid-left-sidebar.html">Curved TVs<span
-                                                        class="lnr lnr-chevron-right"></span></a>
-                                                <ul class="cat-submenu">
-                                                    <li><a href="shop-grid-left-sidebar.html">CD Players &amp;
-                                                            Turntables</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html">Home Theater Systems</a>
-                                                    </li>
-                                                    <li><a href="shop-grid-left-sidebar.html">Receivers &amp;
-                                                            Amplifiers</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html">Speakers</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html">Wireless Audio</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="shop-grid-left-sidebar.html">Streaming Media Players</a></li>
-                                            <li><a href="shop-grid-left-sidebar.html">OLED TVs</a></li>
-                                            <li><a href="shop-grid-left-sidebar.html">LED &amp; LCD TVs</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="shop-grid-left-sidebar.html">Video &amp; Home Theater<span
-                                                class="lnr lnr-chevron-right"></span></a>
-                                        <ul class="cat-submenu category-mega">
-                                            <li class="cat-mega-title"><a href="#">Security Cameras</a>
-                                                <ul>
-                                                    <li><a href="shop-grid-left-sidebar.html">DSLR Cameras</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html">Lense Camera</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html">Digital Cameras</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html">Mirrorless Cameras</a>
-                                                    </li>
-                                                    <li><a href="shop-grid-left-sidebar.html">Point</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="cat-mega-title"><a href="#">Mirrorless Cameras</a>
-                                                <ul>
-                                                    <li><a href="shop-grid-left-sidebar.html">DSLR Cameras</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html">Lense Camera</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html">Digital Cameras</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html">Mirrorless Cameras</a>
-                                                    </li>
-                                                    <li><a href="shop-grid-left-sidebar.html">Point</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="cat-mega-title"><a href="#">Digital Cameras</a>
-                                                <ul>
-                                                    <li><a href="shop-grid-left-sidebar.html">DSLR Cameras</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html">Lense Camera</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html">Digital Cameras</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html">Mirrorless Cameras</a>
-                                                    </li>
-                                                    <li><a href="shop-grid-left-sidebar.html">Point</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="shop-grid-left-sidebar.html">Cellphones &amp; Accessories<span
-                                                class="lnr lnr-chevron-right"></span></a>
-                                        <ul class="cat-submenu">
-                                            <li><a href="shop-grid-left-sidebar.html">CD Players &amp; Turntables</a>
-                                            </li>
-                                            <li><a href="shop-grid-left-sidebar.html">Home Theater Systems</a></li>
-                                            <li><a href="shop-grid-left-sidebar.html">Receivers &amp; Amplifiers</a>
-                                            </li>
-                                            <li><a href="shop-grid-left-sidebar.html">Speakers</a></li>
-                                            <li><a href="shop-grid-left-sidebar.html">Wireless Audio</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="shop-grid-left-sidebar.html">Top Item</a></li>
-                                    <li><a href="shop-grid-left-sidebar.html">Video Games Consoles</a></li>
-                                    <li><a href="shop-grid-left-sidebar.html">Business &amp; Office</a></li>
-                                    <li><a href="shop-grid-left-sidebar.html">Headphones &amp; Accessories</a></li>
-                                    <li><a href="shop-grid-left-sidebar.html">Quadcopters &amp; Accessories</a></li>
-                                    <li><a href="shop-grid-left-sidebar.html">Network Devices</a></li>
+                                            @endif
+                                        </li>
+                                    @empty
+                                    @endforelse
+
+
+                                    {{-- 
                                     <li class="category-item-parent hidden" style="display: none;"><a
                                             href="shop-grid-left-sidebar.html">Smart Watches</a></li>
                                     <li class="category-item-parent"><a class="more-btn" href="#">More
-                                            Categories</a></li>
+                                            Categories</a></li> --}}
                                 </ul>
                             </nav>
                         </div>

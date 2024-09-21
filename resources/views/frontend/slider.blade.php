@@ -9,7 +9,7 @@
                        <div class="row">
                            <div class="col-sm-6 col-sm-8">
                                <div class="slider-text">
-                                   <h1>{{ $slider->title }}</h1>
+                                   <h1>{!! $slider->title !!}</h1>
                                    <p>{{ $slider->sub_title }}</p>
                                    <a class="btn-1 home-btn" href="{{ $slider->url ?? '#' }}">shop now</a>
                                </div>
