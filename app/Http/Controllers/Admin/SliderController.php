@@ -16,7 +16,7 @@ class SliderController extends Controller
      */
     public function index()
     {
-       $sliders = Slider::get();
+        $sliders = Slider::withTrashed()->get();
         return view('admin.slider.index', compact('sliders'));
     }
 
@@ -73,7 +73,8 @@ class SliderController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $slider = Slider::findOrFail($id);
+        return view('admin.slider.edit', compact('slider'));
     }
 
     /**
@@ -81,7 +82,59 @@ class SliderController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|string|max:255',
+            'sub_title' => 'nullable|string|max:255',
+            'url' => 'required|url|max:255',
+            'status' => 'required',
+            'image' => 'nullable|mimes:jpeg,png,jpg,webp|max:2048',
+        ]);
+
+        try {
+
+            $slider = Slider::findOrFail($id);
+
+            if ($request->hasFile('image')) {
+                $file_path = $this->uploadMedia($request, $slider);
+            } else {
+                $file_path = $slider->image;
+            }
+
+            $slider->update([
+                'title' => $request->title,
+                'sub_title' => $request->sub_title,
+                'image' => $file_path,
+                'url' => $request->url,
+                'status' => $request->status,
+            ]);
+            notyf()->success('Slider update successfully.');
+
+            return redirect()->route('admin.slider.index');
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+        }
+    }
+
+    public function trash(string $id)
+    {
+
+        $slider = Slider::findOrFail($id);
+
+        $slider->delete();
+
+        notyf()->success('Slider trashed successfully.');
+        return redirect()->route('admin.slider.index');
+    }
+
+    public function restore(string $id)
+    {
+
+        $slider = Slider::withTrashed()->findOrFail($id);
+
+        $slider->restore();
+
+        notyf()->success('Slider restored successfully.');
+        return redirect()->route('admin.slider.index');
     }
 
     /**
@@ -89,10 +142,17 @@ class SliderController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $slider = Slider::withTrashed()->findOrFail($id);
+
+        if (isset($slider->image) && File::exists(public_path($slider->image))) {
+            unlink($slider->image);
+        }
+        $slider->forceDelete();
+        notyf()->success('Slider delete successfully.');
+        return redirect()->route('admin.slider.index');
     }
 
-    protected function uploadMedia($request, $brand = null)
+    protected function uploadMedia($request, $oldData = null)
     {
 
         if ($request->hasFile('image')) {
@@ -101,8 +161,8 @@ class SliderController extends Controller
             $image->cover(1980, 630);
             $image->toWebp();
             $imageName = time() . rand(0000, 9999) . '.webp';
-            if (isset($brand->image) && File::exists(public_path($brand->image))) {
-                unlink($brand->image);
+            if (isset($oldData->image) && File::exists(public_path($oldData->image))) {
+                unlink($oldData->image);
             }
             $image->save('uploads/slider/' . $imageName);
             return 'uploads/slider/' . $imageName;

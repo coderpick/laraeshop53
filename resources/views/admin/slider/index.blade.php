@@ -57,26 +57,49 @@
                                                 alt="{{ __('') }}">
                                         </td>
                                         <td>
-                                            @if ($slider->status == true)
-                                                <span class="badge badge-success">Active</span>
+                                            @if ($slider->deleted_at == true)
+                                                <span class="badge badge-danger">Trashed</span>
+                                            @elseif ($slider->status == true)
+                                                <span class="badge badge-success">Published</span>
                                             @else
-                                                <span class="badge badge-danger">Inactive</span>
+                                                <span class="badge badge-secondary">Draft</span>
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="{{ route('admin.slider.edit', $slider->id) }}"
-                                                class="btn btn-sm btn-primary">Edit</a>
-                                            <button onclick="deleteRecord({{ $slider->id }})" type="button"
-                                                class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top"
-                                                title="Delete slider">
-                                                Delete
-                                            </button>
-                                            <form id="delete-form-{{ $slider->id }}"
-                                                action="{{ route('admin.slider.destroy', $slider->id) }}" method="POST"
-                                                style="display: none;">
-                                                @csrf
-                                                @method('DELETE')
-                                            </form>
+                                            @if ($slider->deleted_at == true)
+                                                <a href="{{ route('admin.slider.restore', $slider->id) }}"
+                                                    class="btn btn-sm btn-secondary">
+                                                    <i class="fa fa-recycle"></i>
+                                                </a>
+
+                                                <button onclick="deleteRecord({{ $slider->id }})" type="button"
+                                                    class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top"
+                                                    title="Delete slider">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                                <form id="delete-form-{{ $slider->id }}"
+                                                    action="{{ route('admin.slider.destroy', $slider->id) }}"
+                                                    method="POST" style="display: none;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                </form>
+                                            @else
+                                                <a href="{{ route('admin.slider.edit', $slider->id) }}"
+                                                    class="btn btn-sm btn-primary">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+
+                                                <a href="{{ route('admin.slider.trash', $slider->id) }}"
+                                                    onclick="return confirm('Are you sure you want to move this slider to trash?')"
+                                                    class="btn btn-sm btn-warning">
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+
+                                                <a href="{{ route('admin.slider.show', $slider->id) }}"
+                                                    class="btn btn-sm btn-info">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
+                                            @endif
                                         </td>
                                     </tr>
                                 @empty

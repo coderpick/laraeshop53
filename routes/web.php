@@ -70,6 +70,9 @@ Route::prefix('admin/')->as('admin.')->middleware(['auth', 'user-access:admin'])
 
 
       Route::resource('slider', SliderController::class);
+
+    Route::get('/slider/trash/{id}', [SliderController::class, 'trash'])->name('slider.trash');
+    Route::get('/slider/restore/{id}', [SliderController::class, 'restore'])->name('slider.restore');
 });
 
 

@@ -3,7 +3,8 @@
         <!-- Logo Header -->
         <div class="logo-header" data-background-color="dark">
             <a href="index.html" class="logo">
-                <img src="{{ asset('assets/backend/img/logo_light.svg')}}" alt="navbar brand" class="navbar-brand" height="20" />
+                <img src="{{ asset('assets/backend/img/logo_light.svg') }}" alt="navbar brand" class="navbar-brand"
+                    height="20" />
             </a>
             <div class="nav-toggle">
                 <button class="btn btn-toggle toggle-sidebar">
@@ -34,6 +35,9 @@
             </nav>
 
             <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-primary" href="{{ route('home')}}" target="_blank">Go to Home</a>
+                </li>
                 <li class="nav-item topbar-icon dropdown hidden-caret d-flex d-lg-none">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                         aria-expanded="false" aria-haspopup="true">
@@ -85,7 +89,8 @@
                                     </a>
                                     <a href="#">
                                         <div class="notif-img">
-                                            <img src="{{ asset('assets/backend/img/profile2.jpg') }}" alt="Img Profile" />
+                                            <img src="{{ asset('assets/backend/img/profile2.jpg') }}"
+                                                alt="Img Profile" />
                                         </div>
                                         <div class="notif-content">
                                             <span class="block">
@@ -116,7 +121,8 @@
 
 
                 <li class="nav-item topbar-user dropdown hidden-caret">
-                    <a class="dropdown-toggle profile-pic" data-bs-toggle="dropdown" href="#" aria-expanded="false">
+                    <a class="dropdown-toggle profile-pic" data-bs-toggle="dropdown" href="#"
+                        aria-expanded="false">
                         <div class="avatar-sm">
                             <img src="{{ asset('assets/backend/img/profile.jpg') }}" alt="..."
                                 class="avatar-img rounded-circle" />
@@ -148,7 +154,8 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Account Setting</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Logout</a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
