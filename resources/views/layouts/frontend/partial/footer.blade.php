@@ -45,8 +45,8 @@
                         <div class="footer-single-widget">
                             <div class="widget-title">
                                 <div class="footer-logo mb-30">
-                                    <a href="index.html">
-                                        <img src="assets/img/logo/logo-sinrato.png" alt="">
+                                    <a href="{{ route('home')}}">
+                                        <img src="{{ asset('assets/frontend/img/logo/logo-sinrato.png')}}" alt="">
                                     </a>
                                 </div>
                             </div>
@@ -102,15 +102,7 @@
                                 <h4>Our Twitter Feed</h4>
                             </div>
                             <div class="widget-body">
-                                <div class="twitter-article">
-                                    <div class="twitter-text">
-                                        Check out "Alice - Multipurpose Responsive #Magento #Theme" on #Envato by <a
-                                            href="#">@sinratos</a> #Themeforest <a
-                                            href="#">https://t.co/DNdhAwzm88</a>
-                                        <span class="tweet-time"><i class="fa fa-twitter"></i><a href="#">30
-                                                sep</a></span>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div> <!-- single widget end -->

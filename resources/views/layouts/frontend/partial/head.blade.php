@@ -26,4 +26,6 @@
 
     <!-- Modernizer JS -->
     <script src="{{ asset('assets/frontend/js/vendor/modernizr-3.5.0.min.js')}}"></script>
+
+    @stack('page_css')
 </head>

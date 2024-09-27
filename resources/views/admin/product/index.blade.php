@@ -48,7 +48,7 @@
                                 @forelse($products as $key => $product)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
-                                        <td>{{ $product->name }}</td>
+                                        <td>{{ Str::limit($product->name, 20) }}</td>
                                         <td>{{ $product->category->name ?? '' }}</td>
                                         <td>{{ $product->brand->name ?? '' }}</td>
                                         <td>
@@ -77,7 +77,7 @@
                                                 <span class="badge badge-secondary">Draft</span>
                                             @endif
                                         </td>
-                                        <td>
+                                        <td width="16%">
 
                                             @if ($product->deleted_at == true)
 
