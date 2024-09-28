@@ -47,17 +47,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <img src="{{ asset('assets/frontend/img/icon/wrapper4.png') }}" alt="">
-                                </div>
-                                <div class="feature-content">
-                                    <h4>90 Days Return</h4>
-                                    <p>If goods have problems</p>
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="col">
                             <div class="feature-item">
                                 <div class="feature-icon">
@@ -86,7 +76,7 @@
                     @forelse ($newProducts as $key => $newProduct)
                         <div class="product-item">
                             <div class="product-thumb">
-                                <a href="product-details.html">
+                                <a href="{{ route('product.detail', $newProduct->slug) }}">
                                     @forelse ($newProduct->productImages as $key => $image)
                                         <img src="{{ asset($image->image) }}"
                                             class="{{ $key == 0 ? 'pri-img' : 'sec-img' }}" alt="">
@@ -136,7 +126,6 @@
                                     @else
                                         <span class="old-price">£ {{ $newProduct->price }}</span>
                                     @endif
-
                                 </div>
                                 <button class="btn-cart" type="button">add to cart</button>
                             </div>
@@ -254,8 +243,8 @@
                 <div class="brand2-slider-active">
                     @forelse ($brands as $brand)
                         <div class="single-brand-logo">
-                            <a href="#" class="brand-logo-carousel"><img src="{{ asset($brand->image) }}"
-                                    alt=""></a>
+                            <a href="{{ route('brand.product', $brand->slug) }}" class="brand-logo-carousel"><img
+                                    src="{{ asset($brand->image) }}" alt=""></a>
                         </div>
                     @empty
                         No brand found
@@ -265,15 +254,155 @@
         </div>
     </div>
     <!-- brand area end -->
+
+    <!-- Quick view modal start -->
+    <div class="modal fade" id="quickk_view">
+        <div class="container">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <div class="product-large-slider mb-20">
+                                    <div class="pro-large-img">
+                                        <img src="assets/img/product/product-4.jpg" alt="" />
+                                    </div>
+                                    <div class="pro-large-img">
+                                        <img src="assets/img/product/product-5.jpg" alt="" />
+                                    </div>
+                                    <div class="pro-large-img">
+                                        <img src="assets/img/product/product-6.jpg" alt="" />
+                                    </div>
+                                    <div class="pro-large-img">
+                                        <img src="assets/img/product/product-7.jpg" alt="" />
+                                    </div>
+                                    <div class="pro-large-img">
+                                        <img src="assets/img/product/product-8.jpg" alt="" />
+                                    </div>
+                                    <div class="pro-large-img">
+                                        <img src="assets/img/product/product-9.jpg" alt="" />
+                                    </div>
+                                </div>
+                                <div class="pro-nav">
+                                    <div class="pro-nav-thumb"><img src="assets/img/product/product-4.jpg"
+                                            alt="" /></div>
+                                    <div class="pro-nav-thumb"><img src="assets/img/product/product-5.jpg"
+                                            alt="" /></div>
+                                    <div class="pro-nav-thumb"><img src="assets/img/product/product-6.jpg"
+                                            alt="" /></div>
+                                    <div class="pro-nav-thumb"><img src="assets/img/product/product-7.jpg"
+                                            alt="" /></div>
+                                    <div class="pro-nav-thumb"><img src="assets/img/product/product-8.jpg"
+                                            alt="" /></div>
+                                    <div class="pro-nav-thumb"><img src="assets/img/product/product-9.jpg"
+                                            alt="" /></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="product-details-inner">
+                                    <div class="product-details-contentt">
+                                        <div class="pro-details-name mb-10">
+                                            <h3>Bose SoundLink Bluetooth Speaker</h3>
+                                        </div>
+                                        <div class="pro-details-review mb-20">
+                                            <ul>
+                                                <li>
+                                                    <span><i class="fa fa-star"></i></span>
+                                                    <span><i class="fa fa-star"></i></span>
+                                                    <span><i class="fa fa-star"></i></span>
+                                                    <span><i class="fa fa-star"></i></span>
+                                                    <span><i class="fa fa-star"></i></span>
+                                                </li>
+                                                <li><a href="#">1 Reviews</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="price-box mb-15">
+                                            <span class="regular-price"><span class="special-price">£50.00</span></span>
+                                            <span class="old-price"><del>£60.00</del></span>
+                                        </div>
+                                        <div class="product-detail-sort-des pb-20">
+                                            <p>Canon's press material for the EOS 5D states that it 'defines (a) new
+                                                D-SLR category', while we're not typically too concerned</p>
+                                        </div>
+                                        <div class="pro-details-list pt-20">
+                                            <ul>
+                                                <li><span>Availability :</span>In Stock</li>
+                                            </ul>
+                                        </div>
+                                        <div class="product-availabily-option mt-15 mb-15">
+                                            <h3>Available Options</h3>
+                                            <div class="color-optionn">
+                                                <h4><sup>*</sup>color</h4>
+                                                <ul>
+                                                    <li>
+                                                        <a class="c-black" href="#" title="Black"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="c-blue" href="#" title="Blue"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="c-brown" href="#" title="Brown"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="c-gray" href="#" title="Gray"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="c-red" href="#" title="Red"></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="pro-quantity-box mb-30">
+                                            <div class="qty-boxx">
+                                                <label>qty :</label>
+                                                <input type="text" placeholder="0">
+                                                <button class="btn-cart lg-btn">add to cart</button>
+                                            </div>
+                                        </div>
+                                        <div class="pro-social-sharing">
+                                            <label>share :</label>
+                                            <ul>
+                                                <li class="list-inline-item">
+                                                    <a href="#" class="bg-facebook" title="Facebook">
+                                                        <i class="fa fa-facebook"></i>
+                                                        <span>like 0</span>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a href="#" class="bg-twitter" title="Twitter">
+                                                        <i class="fa fa-twitter"></i>
+                                                        <span>tweet</span>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a href="#" class="bg-google" title="Google Plus">
+                                                        <i class="fa fa-google-plus"></i>
+                                                        <span>google +</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Quick view modal end -->
+
+
 @endsection
 
 @push('page_css')
     <style>
         .brand-logo-carousel img {
-            width: 185px;
-            display: flex;
-            gap: 10px border: 1px solid #cfcfcf;
-            border-radius: 6px;
+            width: 110px !important;
         }
     </style>
 @endpush

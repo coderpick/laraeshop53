@@ -142,181 +142,6 @@
                 <div class="col-lg-12">
                     <div class="top-main-menu">
                         <div class="categories-menu-bar">
-                            <div class="slicknav_menu"><a href="#" aria-haspopup="true" role="button"
-                                    tabindex="0" class="slicknav_btn slicknav_collapsed"
-                                    style="outline: none;"><span class="slicknav_menutxt">Categories</span><span
-                                        class="slicknav_icon"><span class="slicknav_icon-bar"></span><span
-                                            class="slicknav_icon-bar"></span><span
-                                            class="slicknav_icon-bar"></span></span></a>
-                                <ul class="slicknav_nav slicknav_hidden" aria-hidden="true" role="menu"
-                                    style="display: none;">
-                                    <li class="slicknav_collapsed slicknav_parent"><a href="#" role="menuitem"
-                                            aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row"
-                                            style="outline: none;"><a href="shop-grid-left-sidebar.html"
-                                                tabindex="-1">Audio &amp; Home Theater <span
-                                                    class="lnr lnr-chevron-right"></span></a>
-                                            <span class="slicknav_arrow">+</span></a>
-                                        <ul class="cat-submenu slicknav_hidden" role="menu" aria-hidden="true"
-                                            style="display: none;">
-                                            <li class="slicknav_collapsed slicknav_parent"><a href="#"
-                                                    role="menuitem" aria-haspopup="true" tabindex="-1"
-                                                    class="slicknav_item slicknav_row" style="outline: none;"><a
-                                                        href="shop-grid-left-sidebar.html" tabindex="-1">Home Audio
-                                                        <span class="lnr lnr-chevron-right"></span></a>
-                                                    <span class="slicknav_arrow">+</span></a>
-                                                <ul class="cat-submenu slicknav_hidden" role="menu"
-                                                    aria-hidden="true" style="display: none;">
-                                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                            tabindex="-1">CD Players &amp; Turntables</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                            tabindex="-1">Home Theater Systems</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                            tabindex="-1">Receivers &amp; Amplifiers</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                            tabindex="-1">Speakers</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                            tabindex="-1">Wireless Audio</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                    tabindex="-1">Blu-ray Disc Players</a></li>
-                                            <li class="slicknav_collapsed slicknav_parent"><a href="#"
-                                                    role="menuitem" aria-haspopup="true" tabindex="-1"
-                                                    class="slicknav_item slicknav_row" style="outline: none;"><a
-                                                        href="shop-grid-left-sidebar.html" tabindex="-1">Curved
-                                                        TVs<span class="lnr lnr-chevron-right"></span></a>
-                                                    <span class="slicknav_arrow">+</span></a>
-                                                <ul class="cat-submenu slicknav_hidden" role="menu"
-                                                    aria-hidden="true" style="display: none;">
-                                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                            tabindex="-1">CD Players &amp; Turntables</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                            tabindex="-1">Home Theater Systems</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                            tabindex="-1">Receivers &amp; Amplifiers</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                            tabindex="-1">Speakers</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                            tabindex="-1">Wireless Audio</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                    tabindex="-1">Streaming Media Players</a></li>
-                                            <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                    tabindex="-1">OLED TVs</a></li>
-                                            <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                    tabindex="-1">LED &amp; LCD TVs</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="slicknav_collapsed slicknav_parent"><a href="#" role="menuitem"
-                                            aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row"
-                                            style="outline: none;"><a href="shop-grid-left-sidebar.html"
-                                                tabindex="-1">Video &amp; Home Theater<span
-                                                    class="lnr lnr-chevron-right"></span></a>
-                                            <span class="slicknav_arrow">+</span></a>
-                                        <ul class="cat-submenu category-mega slicknav_hidden" role="menu"
-                                            aria-hidden="true" style="display: none;">
-                                            <li class="cat-mega-title slicknav_collapsed slicknav_parent"><a
-                                                    href="#" role="menuitem" aria-haspopup="true"
-                                                    tabindex="-1" class="slicknav_item slicknav_row"
-                                                    style="outline: none;"><a href="#" tabindex="-1">Security
-                                                        Cameras</a>
-                                                    <span class="slicknav_arrow">+</span></a>
-                                                <ul role="menu" aria-hidden="true" class="slicknav_hidden"
-                                                    style="display: none;">
-                                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                            tabindex="-1">DSLR Cameras</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                            tabindex="-1">Lense Camera</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                            tabindex="-1">Digital Cameras</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                            tabindex="-1">Mirrorless Cameras</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                            tabindex="-1">Point</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="cat-mega-title slicknav_collapsed slicknav_parent"><a
-                                                    href="#" role="menuitem" aria-haspopup="true"
-                                                    tabindex="-1" class="slicknav_item slicknav_row"
-                                                    style="outline: none;"><a href="#"
-                                                        tabindex="-1">Mirrorless Cameras</a>
-                                                    <span class="slicknav_arrow">+</span></a>
-                                                <ul role="menu" aria-hidden="true" class="slicknav_hidden"
-                                                    style="display: none;">
-                                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                            tabindex="-1">DSLR Cameras</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                            tabindex="-1">Lense Camera</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                            tabindex="-1">Digital Cameras</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                            tabindex="-1">Mirrorless Cameras</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                            tabindex="-1">Point</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="cat-mega-title slicknav_collapsed slicknav_parent"><a
-                                                    href="#" role="menuitem" aria-haspopup="true"
-                                                    tabindex="-1" class="slicknav_item slicknav_row"
-                                                    style="outline: none;"><a href="#" tabindex="-1">Digital
-                                                        Cameras</a>
-                                                    <span class="slicknav_arrow">+</span></a>
-                                                <ul role="menu" aria-hidden="true" class="slicknav_hidden"
-                                                    style="display: none;">
-                                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                            tabindex="-1">DSLR Cameras</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                            tabindex="-1">Lense Camera</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                            tabindex="-1">Digital Cameras</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                            tabindex="-1">Mirrorless Cameras</a></li>
-                                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                            tabindex="-1">Point</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="slicknav_collapsed slicknav_parent"><a href="#" role="menuitem"
-                                            aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row"
-                                            style="outline: none;"><a href="shop-grid-left-sidebar.html"
-                                                tabindex="-1">Cellphones &amp; Accessories<span
-                                                    class="lnr lnr-chevron-right"></span></a>
-                                            <span class="slicknav_arrow">+</span></a>
-                                        <ul class="cat-submenu slicknav_hidden" role="menu" aria-hidden="true"
-                                            style="display: none;">
-                                            <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                    tabindex="-1">CD Players &amp; Turntables</a></li>
-                                            <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                    tabindex="-1">Home Theater Systems</a></li>
-                                            <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                    tabindex="-1">Receivers &amp; Amplifiers</a></li>
-                                            <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                    tabindex="-1">Speakers</a></li>
-                                            <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                                    tabindex="-1">Wireless Audio</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem" tabindex="-1">Top
-                                            Item</a></li>
-                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem" tabindex="-1">Video
-                                            Games Consoles</a></li>
-                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem" tabindex="-1">Business
-                                            &amp; Office</a></li>
-                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                            tabindex="-1">Headphones &amp; Accessories</a></li>
-                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem"
-                                            tabindex="-1">Quadcopters &amp; Accessories</a></li>
-                                    <li><a href="shop-grid-left-sidebar.html" role="menuitem" tabindex="-1">Network
-                                            Devices</a></li>
-                                    <li class="category-item-parent hidden" style="display: none;"><a
-                                            href="shop-grid-left-sidebar.html" role="menuitem" tabindex="-1">Smart
-                                            Watches</a></li>
-                                    <li class="category-item-parent"><a class="more-btn" href="#"
-                                            role="menuitem" tabindex="-1">More Categories</a></li>
-                                </ul>
-                            </div>
                             <div class="categories-menu-btn ha-toggle">
                                 <div class="left">
                                     <i class="lnr lnr-text-align-left"></i>
@@ -330,7 +155,7 @@
                                 <ul id="menu2">
                                     @forelse ($categories as $key=> $category)
                                         <li>
-                                            <a href="shop-grid-left-sidebar.html">{!! $category->name !!}
+                                            <a href="{{ route('category.product', $category->slug) }}">{!! $category->name !!}
                                                 @if ($category->subCategories->count() > 0)
                                                     <span class="lnr lnr-chevron-right"></span>
                                                 @endif
@@ -339,7 +164,7 @@
                                                 <ul class="cat-submenu">
                                                     @foreach ($category->subCategories as $subCategory)
                                                         <li><a
-                                                                href="shop-grid-left-sidebar.html">{!! $subCategory->name !!}</a>
+                                                                href="{{ route('category.product', $subCategory->slug) }}">{!! $subCategory->name !!}</a>
                                                         </li>
                                                     @endforeach
                                                 </ul>
@@ -347,145 +172,15 @@
                                         </li>
                                     @empty
                                     @endforelse
-
-
-                                    {{-- 
-                                    <li class="category-item-parent hidden" style="display: none;"><a
-                                            href="shop-grid-left-sidebar.html">Smart Watches</a></li>
-                                    <li class="category-item-parent"><a class="more-btn" href="#">More
-                                            Categories</a></li> --}}
                                 </ul>
                             </nav>
                         </div>
                         <div class="main-menu">
                             <nav id="mobile-menu" style="display: block;">
                                 <ul>
-                                    <li><a href="#">HOME<span class="lnr lnr-chevron-down"></span></a>
-                                        <ul class="dropdown">
-                                            <li><a href="index.html">Home Version 1</a></li>
-                                            <li><a href="index-2.html">Home Version 2</a></li>
-                                            <li><a href="index-3.html">Home Version 3</a></li>
-                                            <li><a href="index-4.html">Home Version 4</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">SHOP<span class="lnr lnr-chevron-down"></span></a>
-                                        <ul class="dropdown">
-                                            <li><a href="#">Shop Grid Layout <span
-                                                        class="lnr lnr-chevron-right"></span></a>
-                                                <ul class="dropdown">
-                                                    <li><a href="shop-grid-left-sidebar.html">Shop grid left
-                                                            sidebar</a></li>
-                                                    <li><a href="shop-grid-right-sidebar.html">Shop grid right
-                                                            sightbar</a></li>
-                                                    <li><a href="shop-grid-left-sidebar-4-column.html">shop grid left
-                                                            sidebar 4 col</a></li>
-                                                    <li><a href="shop-grid-right-sidebar-4-column.html">shop grid right
-                                                            sidebar 4 col</a></li>
-                                                    <li><a href="shop-grid-full-width-3-column.html">shop grid full
-                                                            width 3 col</a></li>
-                                                    <li><a href="shop-grid-full-width-4-column.html">shop grid full
-                                                            width 4 col</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">Shop List Layout <span
-                                                        class="lnr lnr-chevron-right"></span></a>
-                                                <ul class="dropdown">
-                                                    <li><a href="shop-list-left-sidebar.html">Shop list left
-                                                            sidebar</a></li>
-                                                    <li><a href="shop-list-right-sidebar.html">Shop list right
-                                                            sidebar</a></li>
-                                                    <li><a href="shop-list-full-width.html">Shop list full width</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">Product Details <span
-                                                        class="lnr lnr-chevron-right"></span></a>
-                                                <ul class="dropdown">
-                                                    <li><a href="product-details.html">Product Details</a></li>
-                                                    <li><a href="product-details-variable.html">Product Details
-                                                            Variable</a></li>
-                                                    <li><a href="product-details-external.html">Product Details
-                                                            External</a></li>
-                                                    <li><a href="product-details-group.html">Product Details Group</a>
-                                                    </li>
-                                                    <li><a href="tab-style-one.html">tab style one</a></li>
-                                                    <li><a href="product-details-gallery-left.html">product details
-                                                            gallery left</a></li>
-                                                    <li><a href="product-details-gallery-right.html">product details
-                                                            gallery right</a></li>
-                                                    <li><a href="sticky-left-sidebar.html">sticky left sidebar</a></li>
-                                                    <li><a href="sticky-right-sidebar.html">sticky right sidebar</a>
-                                                    </li>
-                                                    <li><a href="product-details-slider-box.html">product details
-                                                            slider box</a></li>
-                                                    <li><a href="product-details-slider-box.html">product details
-                                                            slider box</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="static"><a href="#">Pages<span
-                                                class="lnr lnr-chevron-down"></span></a>
-                                        <ul class="mega-menu mega-full">
-                                            <li class="mega-title"><a href="#">Column one</a>
-                                                <ul>
-                                                    <li><a href="shop-grid-left-sidebar.html">Shop grid left
-                                                            sidebar</a></li>
-                                                    <li><a href="shop-grid-right-sidebar.html">Shop grid right
-                                                            sightbar</a></li>
-                                                    <li><a href="shop-grid-full-width-4-column.html">Shop grid full
-                                                            width</a></li>
-                                                    <li><a href="shop-list-full-width.html">Shop list full width</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="mega-title"><a href="#">Column two</a>
-                                                <ul>
-                                                    <li><a href="checkout.html">Check Out</a></li>
-                                                    <li><a href="cart.html">Cart</a></li>
-                                                    <li><a href="wishlist.html">Wishlist</a></li>
-                                                    <li><a href="compare.html">Compare</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="mega-title"><a href="#">Column Three</a>
-                                                <ul>
-                                                    <li><a href="product-details.html">Product Details</a></li>
-                                                    <li><a href="product-details-variable.html">Product Details
-                                                            Variable</a></li>
-                                                    <li><a href="product-details-external.html">Product Details
-                                                            External</a></li>
-                                                    <li><a href="product-details-group.html">Product Details Group</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="mega-title"><a href="#">Column Four</a>
-                                                <ul>
-                                                    <li><a href="login.html">login</a></li>
-                                                    <li><a href="register.html">register</a></li>
-                                                    <li><a href="my-account.html">my account</a></li>
-                                                    <li><a href="contact-us.html">contact us</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">BLOG<span class="lnr lnr-chevron-down"></span></a>
-                                        <ul class="dropdown">
-                                            <li><a href="blog-left-sidebar-3.html">Blog Left Sidebar 3 col</a></li>
-                                            <li><a href="blog-left-sidebar-4.html">Blog left Sidebar 4 col</a></li>
-                                            <li><a href="blog-right-sidebar-3.html">Blog Right Sidebar 3 col</a></li>
-                                            <li><a href="blog-right-sidebar-4.html">Blog Right Sidebar 4 col</a></li>
-                                            <li><a href="blog-full-3-column.html">Blog full width 3 col</a></li>
-                                            <li><a href="blog-full-4-column.html">Blog full width 4 col</a></li>
-                                            <li><a href="blog-full-5-column.html">Blog full width 5 col</a></li>
-                                            <li><a href="blog-details.html">Blog Details</a></li>
-                                            <li><a href="blog-details-audio.html">Blog Details audio</a></li>
-                                            <li><a href="blog-details-gallery.html">Blog Details gallery</a></li>
-                                            <li><a href="blog-details-video.html">Blog Details video</a></li>
-                                            <li><a href="blog-details-right-sidebar.html">Blog Details right
-                                                    sidebar</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="contact-us.html">CONTACT US</a></li>
+                                    <li><a href="{{ route('home') }}">Home</a></li>
+                                    <li><a href="{{ route('products') }}">Shop</a></li>
+                                    <li><a href="">CONTACT US</a></li>
                                 </ul>
                             </nav>
                         </div> <!-- </div> end main menu -->

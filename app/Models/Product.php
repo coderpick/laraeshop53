@@ -9,13 +9,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory, SoftDeletes;
     protected $guarded = ['id'];
 
-    public function category():BelongsTo
+    public function category(): BelongsTo
     {
 
-        return $this->belongsTo(Category::class,'category_id','id');
+        return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
     public function subCategory()
@@ -34,5 +34,11 @@ class Product extends Model
     {
 
         return $this->hasMany(ProductImage::class);
+    }
+
+    public function scopeActive($query)
+    {
+
+        return $query->where('status', true);
     }
 }
