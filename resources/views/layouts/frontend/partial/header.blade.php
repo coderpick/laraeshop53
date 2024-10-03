@@ -164,7 +164,7 @@
                                                 <ul class="cat-submenu">
                                                     @foreach ($category->subCategories as $subCategory)
                                                         <li><a
-                                                                href="{{ route('category.product', $subCategory->slug) }}">{!! $subCategory->name !!}</a>
+                                                                href="{{ route('category.product', [$category->slug, $subCategory->slug]) }}">{!! $subCategory->name !!}</a>
                                                         </li>
                                                     @endforeach
                                                 </ul>

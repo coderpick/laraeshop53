@@ -107,7 +107,7 @@
                                         </a></p>
                                 </div>
                                 <div class="product-name">
-                                    <h4><a href="product-details.html">
+                                    <h4><a href="{{ route('product.detail', $newProduct->slug) }}">
                                             {{ $newProduct->name }}
                                         </a></h4>
                                 </div>
@@ -167,7 +167,7 @@
                     @forelse ($featuredProducts as $key => $featuredProduct)
                         <div class="product-item">
                             <div class="product-thumb">
-                                <a href="product-details.html">
+                                <a href="{{ route('product.detail', $featuredProduct->slug) }}">
                                     @forelse ($featuredProduct->productImages as $key => $image)
                                         <img src="{{ asset($image->image) }}"
                                             class="{{ $key == 0 ? 'pri-img' : 'sec-img' }}" alt="">
@@ -198,7 +198,7 @@
                                         </a></p>
                                 </div>
                                 <div class="product-name">
-                                    <h4><a href="product-details.html">
+                                    <h4><a href="{{ route('product.detail', $featuredProduct->slug) }}">
                                             {{ $featuredProduct->name }}
                                         </a></h4>
                                 </div>

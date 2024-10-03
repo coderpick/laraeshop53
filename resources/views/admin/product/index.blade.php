@@ -36,6 +36,7 @@
                                     <th>ID</th>
                                     <th>Name</th>
                                     <th>Category</th>
+                                    <th>Sub Category</th>
                                     <th>Brand</th>
                                     <th>Price</th>
                                     <th>Quantity</th>
@@ -48,8 +49,9 @@
                                 @forelse($products as $key => $product)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
-                                        <td>{{ Str::limit($product->name, 20) }}</td>
+                                        <td>{{ Str::limit($product->name, 30) }}</td>
                                         <td>{{ $product->category->name ?? '' }}</td>
+                                        <td>{{ $product->subCategory->name ?? '' }}</td>
                                         <td>{{ $product->brand->name ?? '' }}</td>
                                         <td>
                                             @if ($product->discount != null)
@@ -80,8 +82,7 @@
                                         <td width="16%">
 
                                             @if ($product->deleted_at == true)
-
-                                              <a href="{{ route('admin.product.restore', $product->id) }}"
+                                                <a href="{{ route('admin.product.restore', $product->id) }}"
                                                     class="btn btn-sm btn-secondary">
                                                     <i class="fa fa-recycle"></i>
                                                 </a>
@@ -97,7 +98,6 @@
                                                     @csrf
                                                     @method('DELETE')
                                                 </form>
-
                                             @else
                                                 <a href="{{ route('admin.product.edit', $product->id) }}"
                                                     class="btn btn-sm btn-primary">
@@ -105,7 +105,8 @@
                                                 </a>
 
                                                 <a href="{{ route('admin.product.trash', $product->id) }}"
-                                                  onclick="return confirm('Are you sure you want to move this product to trash?')"  class="btn btn-sm btn-warning">
+                                                    onclick="return confirm('Are you sure you want to move this product to trash?')"
+                                                    class="btn btn-sm btn-warning">
                                                     <i class="fa fa-trash"></i>
                                                 </a>
 

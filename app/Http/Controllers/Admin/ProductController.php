@@ -5,15 +5,15 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Brand;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\SubCategory;
+use App\Models\ProductImage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ProductStoreRequest;
-use App\Http\Requests\ProductUpdateRequest;
-use App\Models\ProductImage;
-use App\Models\SubCategory;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
+use App\Http\Requests\ProductStoreRequest;
+use App\Http\Requests\ProductUpdateRequest;
 
 class ProductController extends Controller
 {
@@ -95,8 +95,8 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-       $product =Product::with('category', 'subCategory', 'brand:id,name','productImages')->withTrashed()->findOrFail($id);
-       return view('admin.product.show', compact('product'));
+        $product = Product::with('category', 'subCategory', 'brand:id,name', 'productImages')->withTrashed()->findOrFail($id);
+        return view('admin.product.show', compact('product'));
     }
 
     /**

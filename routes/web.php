@@ -5,7 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AjaxController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\SliderController;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\ProductController as ProductController2;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SubCategoryController;
@@ -18,21 +19,13 @@ Auth::routes();
 /* product details route */
 
 
-Route::get('/shop', [ProductController::class, 'products'])->name('products');
+Route::get('/shop', [ProductController2::class, 'products'])->name('products');
 
-Route::get('/product/{slug}', [ProductController::class, 'productDetail'])->name('product.detail');
+Route::get('/product/{slug}', [ProductController2::class, 'productDetail'])->name('product.detail');
 
-Route::get('brand/{slug}', [ProductController::class, 'brandProduct'])->name('brand.product');
-Route::get('category/{category?}/{subCategory?}', [ProductController::class, 'categoryProduct'])->name('category.product');
+Route::get('brand/{slug}', [ProductController2::class, 'brandProduct'])->name('brand.product');
+Route::get('category/{category}/{subCategory?}', [ProductController2::class, 'categoryProduct'])->name('category.product');
 
-/* 
-Route::get('/search', 'ShopController@search')->name('shop.search');
-Route::get('/product/{slug}', 'ProductController@details')->name('product.details');
-Route::get('/find/product','ProductController@autoComplete')->name('autocomplete.search');
-Route::get('brand/{slug}','BrandController@products')->name('brand.products');
-Route::get('category/{category?}/{subCategory?}/{childCategory?}','CategoryController@products')->name('category.products');
-
-*/
 /*------------------------------------------
 
 --------------------------------------------

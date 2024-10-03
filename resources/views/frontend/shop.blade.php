@@ -119,7 +119,8 @@
                                                 </p>
                                             </div>
                                             <div class="product-name">
-                                                <h4><a href="product-details.html">{{ $product->name }}</a>
+                                                <h4><a
+                                                        href="{{ route('product.detail', $product->slug) }}">{{ $product->name }}</a>
                                                 </h4>
                                             </div>
                                             <div class="price-box">
@@ -196,9 +197,9 @@
 
                         <div class="paginatoin-area style-2 pt-35 pb-20">
                             <div class="row">
-                             
-                                    {{ $products->links() }}
-                                    {{-- <ul class="pagination-box pagination-style-2">
+
+                                {{ $products->links() }}
+                                {{-- <ul class="pagination-box pagination-style-2">
                                         <li><a class="Previous" href="#">Previous</a>
                                         </li>
                                         <li class="active"><a href="#">1</a></li>
@@ -208,7 +209,7 @@
                                             <a class="Next" href="#"> Next </a>
                                         </li>
                                     </ul> --}}
-                             
+
                             </div>
                         </div> {{-- pagination edn --}}
 

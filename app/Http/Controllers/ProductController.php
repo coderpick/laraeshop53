@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Brand;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -57,14 +58,16 @@ class ProductController extends Controller
 
         return view('frontend.shop', compact('products'));
     }
-    public function categoryProduct($category = null, $subCategory = null)
+    public function categoryProduct($category, $subCategory = null)
     {
 
-        if (isset($subCategory)) {
-            $data['products'] = Category::where('slug', $category)->first()->subCategories->where('slug', $subCategory)->first()->products()->active()->paginate(12);
-        } elseif (isset($category)) {
+        if (isset($category) && $subCategory != null) {
+            $subCategory = SubCategory::where('slug', $subCategory)->first();
+            $data['products'] = Product::where('sub_category_id', $subCategory->id)->active()->paginate(12);
+        } else {
             $data['products'] = Category::where('slug', $category)->first()->products()->active()->paginate(12);
         }
+
         if (!$data['products']) {
             abort(404);
         }

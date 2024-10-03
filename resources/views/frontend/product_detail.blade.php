@@ -223,10 +223,11 @@
                         <div class="product-thumb">
                             <a href="{{ route('product.detail', $relatedProduct->slug) }}">
                                 @if ($relatedProduct->productImages->count() > 0)
-                                    @foreach ($relatedProduct->productImages as $image)
-                                        <div class="pro-nav-thumb"><img src="{{ asset($image->image) }}"
-                                                alt="" /></div>
-                                    @endforeach
+                                    @forelse ($relatedProduct->productImages as $key => $image)
+                                        <img src="{{ asset($image->image) }}"
+                                            class="{{ $key == 0 ? 'pri-img' : 'sec-img' }}" alt="">
+                                    @empty
+                                    @endforelse
                                 @endif
                             </a>
                             <div class="box-label">
@@ -255,7 +256,9 @@
                                 <p><a href="shop-grid-left-sidebar.html">{{ $relatedProduct->brand->name ?? '' }}</a></p>
                             </div>
                             <div class="product-name">
-                                <h4><a href="product-details.html">{{ $relatedProduct->name }}</a></h4>
+                                <h4><a
+                                        href="{{ route('product.detail', $relatedProduct->slug) }}">{{ $relatedProduct->name }}</a>
+                                </h4>
                             </div>
                             <div class="ratings">
                                 <span class="yellow"><i class="lnr lnr-star"></i></span>
