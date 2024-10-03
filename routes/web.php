@@ -1,15 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AjaxController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\ProductController as ProductController2;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SubCategoryController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ProductController as ProductController2;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -26,17 +28,27 @@ Route::get('/product/{slug}', [ProductController2::class, 'productDetail'])->nam
 Route::get('brand/{slug}', [ProductController2::class, 'brandProduct'])->name('brand.product');
 Route::get('category/{category}/{subCategory?}', [ProductController2::class, 'categoryProduct'])->name('category.product');
 
+
+Route::group(['as' => 'cart.', 'prefix' => 'cart'], function () {
+  Route::get('/', [CartController::class, 'index'])->name('index');
+  Route::post('/{product}/add', [CartController::class, 'addToCart'])->name('add');
+  Route::put('/{cartId}/update', [CartController::class, 'updateCart'])->name('update');
+  Route::delete('/{cartId}/destroy', [CartController::class, 'cartItemRemove'])->name('destroy');
+  Route::delete('/clear', [CartController::class, 'clearCart'])->name('clear');
+});
+
 /*------------------------------------------
-
---------------------------------------------
-
 All Normal Users Routes List
-
---------------------------------------------
-
 --------------------------------------------*/
+Route::middleware(['auth', 'user-access:user'])->group(function () {
 
-Route::middleware(['auth', 'user-access:user'])->group(function () {});
+  // Route::get('wishlists', 'WishlistController@index')->name('wishlists.index');
+  // Route::get('wishlists/{product}/add', 'WishlistController@add')->name('wishlists.add');
+  // Route::delete('wishlists/{id}', 'WishlistController@destroy')->name('wishlists.destroy');
+
+  Route::get('checkout', [CheckoutController::class, 'ind ex'])->name('checkout.index');
+  Route::post('checkout', [CheckoutController::class, 'store'])->name('checkout.store');
+});
 
 
 

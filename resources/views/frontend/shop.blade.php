@@ -132,7 +132,10 @@
                                                     <span class="old-price">£ {{ $product->price }}</span>
                                                 @endif
                                             </div>
-                                            <button class="btn-cart" type="button">add to cart</button>
+                                            <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                                                @csrf
+                                                <button class="btn-cart" type="submit">add to cart</button>
+                                            </form>
                                         </div>
                                     </div> <!-- end single grid item -->
 
@@ -177,7 +180,11 @@
                                                     <span class="old-price">£ {{ $product->price }}</span>
                                                 @endif
                                             </div>
-                                            <button class="btn-cart" type="button">add to cart</button>
+                                            <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                                                @csrf
+                                                <button class="btn-cart" type="submit">add to cart</button>
+                                            </form>
+
                                             <div class="action-links sinrat-list-icon">
                                                 <a href="#" title="Wishlist"><i class="lnr lnr-heart"></i></a>
                                                 <a href="#" title="Quick view" data-bs-target="#quickk_view"
