@@ -127,7 +127,10 @@
                                         <span class="old-price">£ {{ $newProduct->price }}</span>
                                     @endif
                                 </div>
-                                <button class="btn-cart" type="button">add to cart</button>
+                                <form action="{{ route('cart.add', $newProduct->id) }}" method="post">
+                                    @csrf
+                                    <button class="btn-cart" type="submit">add to cart</button>
+                                </form>
                             </div>
                         </div>
                         <!-- </div> end single item -->
@@ -219,7 +222,10 @@
                                     @endif
 
                                 </div>
-                                <button class="btn-cart" type="button">add to cart</button>
+                                <form action="{{ route('cart.add', $featuredProduct->id) }}" method="post">
+                                    @csrf
+                                    <button class="btn-cart" type="submit">add to cart</button>
+                                </form>
                             </div>
                         </div>
                         <!-- </div> end single item -->

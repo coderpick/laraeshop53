@@ -79,49 +79,63 @@
                     <div class="mini-cart-option">
                         <ul>
                             <li class="compare">
-                                <a class="ha-toggle" href="compare.html"><span class="lnr lnr-sync"></span>Product
+                                <a class="ha-toggle" href="#"><span class="lnr lnr-sync"></span>Product
                                     compare</a>
                             </li>
                             <li class="wishlist">
-                                <a class="ha-toggle" href="wishlist.html"><span class="lnr lnr-heart"></span><span
+                                <a class="ha-toggle" href="#"><span class="lnr lnr-heart"></span><span
                                         class="count">1</span>wishlist</a>
                             </li>
                             <li class="my-cart">
                                 <button type="button" class="ha-toggle"><span class="lnr lnr-cart"></span><span
-                                        class="count">2</span>my cart</button>
+                                        class="count">
+                                        {{ Cart::getTotalQuantity() ?? 0 }}
+
+                                    </span>my cart</button>
                                 <ul class="mini-cart-drop-down ha-dropdown">
-                                    <li class="mb-30">
-                                        <div class="cart-img">
-                                            <a href="product-details.html"><img alt=""
-                                                    src="assets/img/cart/cart-1.jpg"></a>
-                                        </div>
-                                        <div class="cart-info">
-                                            <h4><a href="product-details.html">Koss Porta Pro On Ear Headphones </a>
-                                            </h4>
-                                            <span> <span>1 x </span>£165.00</span>
-                                        </div>
-                                        <div class="del-icon">
-                                            <i class="fa fa-times-circle"></i>
-                                        </div>
-                                    </li>
+                                    @php
+                                        $cartItems = \Cart::getContent();
+
+                                    @endphp
+                                    @forelse ($cartItems as $cart)
+                                        <li class="mb-30">
+                                            <div class="cart-img">
+                                                <a href="{{ route('product.detail', $cart->attributes->slug) }}">
+                                                    <img alt=""
+                                                        src="{{ asset($cart->attributes->image->image ?? '') }}">
+                                                </a>
+                                            </div>
+                                            <div class="cart-info">
+                                                <h4><a href="{{ route('product.detail', $cart->attributes->slug) }}">{{ $cart->name }}
+                                                    </a>
+                                                </h4>
+                                                <span> <span> {{ $cart->quantity }} x
+                                                    </span>৳{{ Cart::get($cart->id)->getPriceSum() }}</span>
+                                            </div>
+                                            <form action="{{ route('cart.destroy', $cart->id) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="del-icon" type="submit">
+                                                    <i class="fa fa-times-circle"></i>
+                                                </button>
+                                            </form>
+
+                                        </li>
+                                    @empty
+                                    @endforelse
+
+
                                     <li>
                                         <div class="subtotal-text">Sub-total: </div>
-                                        <div class="subtotal-price">£48.94</div>
+                                        <div class="subtotal-price"><span>৳{{ Cart::getSubTotal() }}</span></div>
                                     </li>
-                                    <li>
-                                        <div class="subtotal-text">Eco Tax (-2.00): </div>
-                                        <div class="subtotal-price">£1.51</div>
-                                    </li>
-                                    <li>
-                                        <div class="subtotal-text">Vat (20%): </div>
-                                        <div class="subtotal-price">£9.79</div>
-                                    </li>
+
                                     <li>
                                         <div class="subtotal-text">Total: </div>
-                                        <div class="subtotal-price"><span>£60.24</span></div>
+                                        <div class="subtotal-price"><span>৳{{ Cart::getTotal() }}</span></div>
                                     </li>
                                     <li class="mt-30">
-                                        <a class="cart-button" href="cart.html">view cart</a>
+                                        <a class="cart-button" href="{{ route('cart.index') }}">view cart</a>
                                     </li>
                                     <li>
                                         <a class="cart-button" href="checkout.html">checkout</a>

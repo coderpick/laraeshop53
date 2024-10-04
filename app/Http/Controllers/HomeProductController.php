@@ -8,7 +8,7 @@ use App\Models\Category;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class HomeProductController extends Controller
 {
 
     public function products()

@@ -87,10 +87,15 @@
 
                             <div class="pro-quantity-box mb-30">
                                 <div class="qty-boxx">
-                                    <label>qty :</label>
-                                    <input type="text" placeholder="0">
-                                    <button class="btn-cart lg-btn">add to cart</button>
+                                    @if ($product->quantity > 0)
+                                        <form action="{{ route('cart.add', $product->id) }}" method="post">
+                                            @csrf
+                                            <button class="btn-cart" type="submit">add to cart</button>
+                                        </form>
                                 </div>
+                            @else
+                                <button class="btn-cart" disabled type="button">add to cart</button>
+                                @endif
                             </div>
                             <div class="useful-links mb-20">
                                 <ul>
@@ -276,7 +281,10 @@
                                     <span class="old-price">{{ $relatedProduct->price }}Tk</span>
                                 @endif
                             </div>
-                            <button class="btn-cart" type="button">add to cart</button>
+                            <form action="{{ route('cart.add', $product->id) }}" method="post">
+                                @csrf
+                                <button class="btn-cart" type="submit">add to cart</button>
+                            </form>
                         </div>
                     </div><!-- </div> end single item -->
                 @empty
