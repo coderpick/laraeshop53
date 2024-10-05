@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('image')->nullable();
             $table->string('phone')->nullable();
+            $table->string('address')->nullable();
             $table->tinyInteger('type')->default(0)->comment('0=>user, 1=>admin, 2=>manager');
             /* Users: 0=>User, 1=>Admin, 2=>Manager */
             $table->rememberToken();

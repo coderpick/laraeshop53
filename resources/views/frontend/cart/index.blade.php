@@ -140,7 +140,7 @@
 
                                         </div>
 
-                                        <a href="checkout.html" class="btn btn-secondary dark align-self-end">Checkout</a>
+                                        <a href="{{ route('checkout')}}" class="btn btn-secondary dark align-self-end">Checkout</a>
                                     </div>
                                 </div>
                             </div>

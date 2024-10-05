@@ -3,8 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Admin\AjaxController;
 use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\HomeProductController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ProductController;
@@ -40,10 +42,13 @@ Route::group(['as' => 'cart.', 'prefix' => 'cart'], function () {
 /*------------------------------------------
 All Normal Users Routes List
 --------------------------------------------*/
+/* checkout route */
+
+Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout');
 
 Route::middleware(['auth', 'user-access:user'])->group(function () {
 
-  
+  Route::post('/checkout/store', [CheckoutController::class, 'checkoutStore'])->name('checkout.store');
 });
 
 
@@ -87,6 +92,13 @@ Route::prefix('admin/')->as('admin.')->middleware(['auth', 'user-access:admin'])
 
   Route::get('/slider/trash/{id}', [SliderController::class, 'trash'])->name('slider.trash');
   Route::get('/slider/restore/{id}', [SliderController::class, 'restore'])->name('slider.restore');
+
+/* customer orders */
+
+ Route::get('orders', [OrderController::class, 'index'])->name('orders');
+ Route::get('orders/approved', [OrderController::class, 'approvedOrder'])->name('approved.orders');
+ Route::get('orders/show/{id}', [OrderController::class, 'showOrder'])->name('show.order');
+
 });
 
 

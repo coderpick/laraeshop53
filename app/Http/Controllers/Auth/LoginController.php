@@ -78,7 +78,8 @@ class LoginController extends Controller
                 return redirect()->route('manager.dashboard');
             } else {
 
-                return redirect()->route('home');
+                // return redirect()->route('home');
+                return redirect()->intended();
             }
         } else {
 
