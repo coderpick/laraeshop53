@@ -14,12 +14,17 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->float('total_price');
+            $table->float('amount');
+            $table->float('invoice_number')->nullable();
             $table->string('payment_method');
-            $table->string('payment_status');
+            $table->string('tran_id')->nullable();
+            $table->string('currency')->nullable();
+            $table->string('bank_tran_id')->nullable();
+            $table->text('payment_type')->nullable();
+            $table->enum('payment_status', ['Pending', 'Successful', 'Processing', 'Complete', 'Failed', 'Canceled'])->default('Pending');
             $table->text('order_note')->nullable();
             $table->text('shipping_address')->nullable();
-            $table->enum('status', ['pending', 'approved', 'processing', 'shipped', 'awaiting_payment', 'completed', 'declined'])->default('pending');
+            $table->enum('status', ['pending', 'approved', 'processing', 'shipped', 'delivered', 'declined'])->default('pending');
             $table->timestamps();
         });
     }

@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SubCategoryController;
+use App\Http\Controllers\SslCommerzPaymentController;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -49,6 +50,16 @@ Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout
 Route::middleware(['auth', 'user-access:user'])->group(function () {
 
   Route::post('/checkout/store', [CheckoutController::class, 'checkoutStore'])->name('checkout.store');
+});
+
+
+
+/* sslcommerz routes */
+Route::group(['as' => 'sslcommerz.', 'prefix' => 'sslcommerz'], function () {
+  Route::post('/success', [SslCommerzPaymentController::class, 'success'])->name('payment.success');
+  Route::post('/fail', [SslCommerzPaymentController::class, 'fail'])->name('payment.failed');
+  Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel'])->name('payment.cancel');
+  Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn'])->name('payment.ipn');
 });
 
 
@@ -93,12 +104,11 @@ Route::prefix('admin/')->as('admin.')->middleware(['auth', 'user-access:admin'])
   Route::get('/slider/trash/{id}', [SliderController::class, 'trash'])->name('slider.trash');
   Route::get('/slider/restore/{id}', [SliderController::class, 'restore'])->name('slider.restore');
 
-/* customer orders */
+  /* customer orders */
 
- Route::get('orders', [OrderController::class, 'index'])->name('orders');
- Route::get('orders/approved', [OrderController::class, 'approvedOrder'])->name('approved.orders');
- Route::get('orders/show/{id}', [OrderController::class, 'showOrder'])->name('show.order');
-
+  Route::get('orders', [OrderController::class, 'index'])->name('orders');
+  Route::get('orders/approved', [OrderController::class, 'approvedOrder'])->name('approved.orders');
+  Route::get('orders/show/{id}', [OrderController::class, 'showOrder'])->name('show.order');
 });
 
 

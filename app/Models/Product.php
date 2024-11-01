@@ -41,4 +41,9 @@ class Product extends Model
 
         return $query->where('status', true);
     }
+
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class)->withTimestamps();
+    }
 }

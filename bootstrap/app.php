@@ -16,7 +16,12 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'user-access' => UserAccess::class
         ]);
-        
+        $middleware->validateCsrfTokens(except: [
+            '/sslcommerz/success',
+            '/sslcommerz/fail',
+            '/sslcommerz/cancel',
+            '/sslcommerz/ipn',
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
