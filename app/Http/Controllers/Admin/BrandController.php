@@ -142,6 +142,9 @@ class BrandController extends Controller
             $imageName = time() . rand(0000, 9999) . '.webp';
             if (isset($brand->image) && File::exists(public_path($brand->image))) {
                 unlink($brand->image);
+            }          
+            if (!File::exists(public_path('uploads/brand'))) {
+                mkdir(public_path('uploads/brand'), 0777, true);
             }
             $image->save('uploads/brand/' . $imageName);
             return 'uploads/brand/' . $imageName;

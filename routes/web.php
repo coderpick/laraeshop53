@@ -45,9 +45,10 @@ All Normal Users Routes List
 --------------------------------------------*/
 /* checkout route */
 
-Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout');
 
 Route::middleware(['auth', 'user-access:user'])->group(function () {
+
+  Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout');
 
   Route::post('/checkout/store', [CheckoutController::class, 'checkoutStore'])->name('checkout.store');
 });
@@ -55,13 +56,11 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
 
 
 /* sslcommerz routes */
-Route::group(['as' => 'sslcommerz.', 'prefix' => 'sslcommerz'], function () {
-  Route::post('/success', [SslCommerzPaymentController::class, 'success'])->name('payment.success');
-  Route::post('/fail', [SslCommerzPaymentController::class, 'fail'])->name('payment.failed');
-  Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel'])->name('payment.cancel');
-  Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn'])->name('payment.ipn');
-});
 
+Route::post('/success', [SslCommerzPaymentController::class, 'success'])->name('payment.success');
+Route::post('/fail', [SslCommerzPaymentController::class, 'fail'])->name('payment.failed');
+Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel'])->name('payment.cancel');
+Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn'])->name('payment.ipn');
 
 
 /*------------------------------------------

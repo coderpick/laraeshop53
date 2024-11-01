@@ -67,6 +67,9 @@ class ProductController extends Controller
         $imageData = [];
 
         if ($files = $request->file('images')) {
+            if (!File::exists(public_path('uploads/product'))) {
+                mkdir(public_path('uploads/product'), 0777, true);
+            }
 
             foreach ($files as $key => $file) {
 

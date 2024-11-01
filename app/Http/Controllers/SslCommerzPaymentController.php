@@ -8,12 +8,12 @@ use App\Library\SslCommerz\SslCommerzNotification;
 
 class SslCommerzPaymentController extends Controller
 {
-   
+
 
     public function success(Request $request)
     {
-       
-       return $request;
+
+        return $request;
         echo "Transaction is Successful";
 
         $tran_id = $request->input('tran_id');
@@ -55,6 +55,8 @@ class SslCommerzPaymentController extends Controller
 
     public function fail(Request $request)
     {
+        return $request;
+
         $tran_id = $request->input('tran_id');
 
         $order_details = DB::table('orders')
@@ -75,6 +77,7 @@ class SslCommerzPaymentController extends Controller
 
     public function cancel(Request $request)
     {
+        return $request;
         $tran_id = $request->input('tran_id');
 
         $order_details = DB::table('orders')

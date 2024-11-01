@@ -164,6 +164,9 @@ class SliderController extends Controller
             if (isset($oldData->image) && File::exists(public_path($oldData->image))) {
                 unlink($oldData->image);
             }
+            if (!File::exists(public_path('uploads/slider'))) {
+                mkdir(public_path('uploads/slider'), 0777, true);
+            }
             $image->save('uploads/slider/' . $imageName);
             return 'uploads/slider/' . $imageName;
         }
